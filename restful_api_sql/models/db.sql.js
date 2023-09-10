@@ -6,7 +6,7 @@ const connection = mysql.createConnection({ //สร้างตัวแปร 
   host:dbConfig.HOST, //:dbConfig. เป็นการส่งค่าพารามิเตอร์ให้เขา //ค่านี้เก็บเอาไว้ในไฟล์ db.config.js ไว้เรียบร้อย
   user:dbConfig.USER, //ค่านี้เก็บเอาไว้ในไฟล์ db.config.js ไว้เรียบร้อย
   password:dbConfig.PASSWORD, //ค่านี้เก็บเอาไว้ในไฟล์ db.config.js ไว้เรียบร้อย
-  database:dbConfig.DATABASE //ค่านี้เก็บเอาไว้ในไฟล์ db.config.js ไว้เรียบร้อย
+  database:dbConfig.DB //ค่านี้เก็บเอาไว้ในไฟล์ db.config.js ไว้เรียบร้อย
 });
 
 //Connect to DB

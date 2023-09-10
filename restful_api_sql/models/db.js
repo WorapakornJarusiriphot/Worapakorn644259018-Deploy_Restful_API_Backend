@@ -5,20 +5,24 @@ const dbConfig = require("../config/db.config")//เป็นการเอา�
 //instance
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{ //สร้างตัวแปร connection 
     host:dbConfig.HOST, //:dbConfig. เป็นการส่งค่าพารามิเตอร์ให้เขา //ค่านี้เก็บเอาไว้ในไฟล์ db.config.js ไว้เรียบร้อย
-    dialect:"mysql"
-  })
+    dialect: "mysql",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, 
+    },
+  },
+});
 
 //Test the database connection
-  async function testConection(){
+async function testConection(){
     try {
-        await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
-      } catch (error) {
-        console.error('Unable to connect to the database:', error);
-      }
-  }
+      await sequelize.authenticate();
+      console.log("Connection has been established successfully.");
+    } catch (error) {
+      console.error("Unable to connect to the database:", error);
+    }
+}
 
-
-  testConection();
-
-  module.exports = sequelize;
+testConection();
+module.exports = sequelize;
